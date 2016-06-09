@@ -39,6 +39,14 @@
                 "logs:PutLogEvents"
               ],
               "Resource": "arn:aws:logs:${region}:*:*"
+            },
+            {
+              "Effect": "Allow",
+              "Resource": "*",
+              "Action": [
+                "lambda:*",
+                "SNS:*"
+              ]
             }
           ]
         },
