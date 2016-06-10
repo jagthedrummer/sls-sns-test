@@ -6,9 +6,9 @@ module.exports.handler = function(event, context, cb) {
 
   const sns = new AWS.SNS({params: {TopicArn: process.env.TOPIC_ARN}});
 
-  const message = { msg: 'oh hai!', foo: 'bar' };
+  for(var i = 0; i < 2; i++){
+    const message = { msg: 'oh hai!', foo: 'bar', isGood: i === 0 };
 
-  for(var i = 0; i < 10; i++){
     sns.publish({Message: JSON.stringify(message)}, function (err, data) {
       if(err){
         console.log('Error:', err);
